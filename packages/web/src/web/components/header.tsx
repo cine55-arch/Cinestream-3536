@@ -1,0 +1,6 @@
+import { Link } from 'wouter';
+import { Play, ShieldCheck, Search } from 'lucide-react';
+export function Brand() { return <Link href="/" className="brand"><span className="brand-icon"><Play size={17} fill="currentColor" /></span>CINÉ<span>STREAM</span><i /></Link>; }
+export function Header({ tab, setTab, search, setSearch }: { tab?: string; setTab?: (x: string) => void; search?: string; setSearch?: (x: string) => void }) {
+  return <header className="header"><Brand /><nav aria-label="Navigation principale"><button className={!tab || tab === 'all' ? 'nav-active' : ''} onClick={() => setTab ? setTab('all') : location.assign('/')}>Films</button><Link href="/series" className={tab === 'series' ? 'nav-active' : ''}>Séries</Link><button className={tab === 'saved' ? 'nav-active' : ''} onClick={() => setTab ? setTab('saved') : location.assign('/?saved=1')}>Ma liste</button></nav><div className="header-right">{setSearch && <label className="search"><Search size={18} /><input aria-label={tab === 'series' ? 'Rechercher une série' : 'Rechercher un film'} placeholder={tab === 'series' ? 'Rechercher une série' : 'Rechercher un film'} value={search} onChange={e => setSearch(e.target.value)} /></label>}<Link className="admin-link" href="/admin"><ShieldCheck size={17} /><span>Administration</span></Link></div></header>;
+}

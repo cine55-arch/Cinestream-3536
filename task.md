@@ -1,0 +1,11 @@
+# CinéStream — Séries
+- Plan approuvé : séries → saisons → épisodes MP4 ; admin CRUD ; catalogue public /series.
+- Conserver films, Top 5 films, analytics, suppression du badge, lecteur et dissuasion anti-téléchargement simple.
+- Ajouter tables series, seasons, episodes sans toucher aux films existants.
+- Ajouter procédures oRPC protégées pour les écritures et liens de lecture signés pour les épisodes.
+- Réutiliser le lecteur pour les épisodes, reprise séparée par ID, pas de vue film pour les épisodes.
+- Ajouter navigation Séries, fiches saisons/épisodes et onglets Films/Séries dans l’admin.
+- Fait : tables et procédures protégées, catalogue /series et fiches, gestion admin fiches/saisons/épisodes, import MP4 avec progression.
+- Build initial réussi. Tests Chromium réels : création avec affiche, 2 uploads MP4, modifications épisode/saison, 2 saisons, lecture et reprise à 8 secondes après rechargement, clic droit bloqué, mobile sans débordement, aucun comptage film pour un épisode.
+- Tests de suppression épisode/saison/série réussis ; catalogue films inchangé ; série de test et 3 objets S3 de test supprimés.
+- Ajustements d’accessibilité des nouveaux formulaires effectués ; vérifier build/lint final et livrer site + ZIP sans secrets.
